@@ -1,5 +1,5 @@
 To copy from system-host to system-client without password authentication - other way would be keys authentication as:
 
-1. In system-client (from where scp going to be performed), using 'ssh-keygen -t rsa' generate keys (id_rsa and id_rsa.pub), the cat ~/.ssh/id_rsa.pub file and copy the same content.
-2. In system-host, create file 'touch ~/.ssh/authorized_keys' and set permission 'chmod 600 ~/.ssh/authorized_keys' 
+1. In system-client (from where scp going to be performed), using 'ssh-keygen -t rsa' generate keys (id_rsa and id_rsa.pub), theh read/cat '~/.ssh/id_rsa.pub' file and copy the same content.
+2. In system-host, create file 'touch ~/.ssh/authorized_keys' and set permission 'chmod 600 ~/.ssh/authorized_keys', then paste id_rsa.pub content to this file.
 3. In system-client, perform 'scp system-host_HOSTNAME@system-host_IP_ADDRESS:<file_path>' example: scp tommy@192.168.100.101:/tmp/test.sh /tmp/
