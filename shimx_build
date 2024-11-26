@@ -1,0 +1,22 @@
+Steps/notes to build shimx64.exe @ Linux platform:
+1. Install Ubuntu 24
+   $ cat /etc/issue
+   Ubuntu 24.04 LTS \n \l
+   $
+
+2. Update and install build essentials and other required components:
+   sudo apt update
+   sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 python3-subunit zstd liblz4-tool file locales libacl1 flex bison libelf-dev openssl-pkcs11-sign-provider libssl-dev libefiboot-dev gnu-efi sbsigntool uuid-dev libelf-dev openssl libefiboot1t64 libefiboot-dev libefivar-dev 
+
+3. Clone shim repo: git clone https://github.com/rhboot/shim.git
+4. Go-to cloned path apply '--recursive' as mention below (internal folders clone/sync)
+   $ cd shim
+   $ git submodule update --init --recursive
+5. Start build as per platform
+   $ make ARCH=x86_64
+6. Once after build done, can see output files as:
+    $ ls -lh shimx64.*
+    -rwxrwxr-x 1 pck lk 928K Nov 26 14:22 shimx64.efi
+    -rwxrwxr-x 1 pck lk 3.0M Nov 26 14:22 shimx64.efi.debug
+    -rwxrwxr-x 1 pck lk 3.5M Nov 26 14:22 shimx64.so
+7. Further to sign can fallow using sbsign ..etc
